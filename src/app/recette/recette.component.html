@@ -1,0 +1,18 @@
+<div *ngIf="metier">
+  <div class="w3-panel w3-card  w3-sand w3-half">
+    <div class="w3-container">
+      <h2>Ajouter une recette pour le métier {{metier.nomMetier}} :</h2>
+    </div>
+    <div class="w3-container">
+      <form (ngSubmit)="onSubmit(recetteForm)" #recetteForm="ngForm">
+        <label>1 . Recipe Name:</label>
+        <input type="hidden" name="idMetier" [(ngModel)]="metier.idMetier">
+        <input name="nomRecette" ngModel type="text" class="w3-input w3-border"><br />
+        <input name="niveauRecette" ngModel type="text" class="w3-input w3-border"><br />
+        <input type="submit" value="Next >" class="w3-btn w3-teal">
+      </form>
+      <br />
+    </div>
+    <br />
+  </div>
+</div>

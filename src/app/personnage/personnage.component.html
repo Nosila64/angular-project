@@ -1,0 +1,15 @@
+<div class="w3-panel w3-card  w3-sand w3-half">
+  <div class="w3-container">
+    <h2>Ajouter un Personnage :</h2>
+  </div>
+
+  <div class="w3-container">
+    <form (ngSubmit)="onSubmit(nomPersonnage.value)" #personnageForm="ngForm">
+      <label>1 . Character Name:</label>
+      <input #nomPersonnage class="w3-input w3-border"><br />
+      <input type="submit" value="Next >" class="w3-btn w3-teal">
+    </form>
+    <br />
+  </div>
+  <br />
+</div>
