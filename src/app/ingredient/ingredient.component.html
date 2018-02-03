@@ -1,0 +1,15 @@
+<div class="w3-panel w3-card  w3-sand w3-half">
+  <div class="w3-container">
+    <h2>Générateur d'ingrédients :</h2>
+  </div>
+
+  <div class="w3-container">
+    <form (ngSubmit)="onSubmit(nomIngredient.value);nomIngredient.value=''" #ingredientForm="ngForm">
+      <label>1 . Ingredient Name:</label>
+      <input #nomIngredient class="w3-input w3-border"><br />
+      <input type="submit" value="Next >" class="w3-btn w3-teal">
+    </form>
+    <br />
+  </div>
+  <br />
+</div>

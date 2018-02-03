@@ -1,0 +1,29 @@
+
+<div *ngIf="ingredients && recette">
+  <div class="w3-panel w3-card  w3-sand w3-half">
+    <div class="w3-container">
+      <h2>Ajouter un Personnage :</h2>
+    </div>
+
+    <div class="w3-container">
+      <form (ngSubmit)="onSubmit(recingForm)" [formGroup]="recingForm">
+        <label>1 . Ajouter des ingredients pour la recette {{recette.nomRecette}}:</label>
+        <div formArrayName="ingredients">
+          <div *ngFor="let ingredient of recingForm.controls.ingredients.controls; let i=index">
+            <div>
+              <span>Ingredient n° {{i + 1}}</span>
+              <span class="glyphicon glyphicon-remove pull-right" *ngIf="recingForm.controls.ingredients.controls.length > 1" (click)="removeIngredient(i)"></span>
+            </div>
+            <select formControlName="ingredient" class="w3-select">
+              <option *ngFor="let ingredient of ingredients.Ingredients"  value="{{ingredient.idIngredient}}">{{ingredient.nomIngredient}}</option>
+            </select>
+            <input formControlName="quantite" ngModel type="text" class="w3-input w3-border"><br />
+          </div>
+        </div>
+        <input type="submit" value="Next >" class="w3-btn w3-teal">
+      </form>
+      <br />
+    </div>
+    <br />
+  </div>
+</div>

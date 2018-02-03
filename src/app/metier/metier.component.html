@@ -1,0 +1,15 @@
+<div class="w3-panel w3-card  w3-sand w3-half">
+  <div class="w3-container">
+    <h2>Ajouter un métier :</h2>
+  </div>
+
+  <div class="w3-container">
+
+    <form (ngSubmit)="onSubmit(jobName.value)" #jobForm="ngForm">
+      <p><label>1 . Job Name:</label>
+        <input #jobName class="w3-input w3-border"></p><br />
+      <input type='submit' class="w3-btn w3-teal" value='Next >'>
+    </form>
+    <br />
+  </div><br />
+</div>
