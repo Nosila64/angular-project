@@ -1,0 +1,10 @@
+<div *ngIf="recap">
+  <h2>Vous venez de créer la recette {{recap[0].nomRecette}} du métier {{recap[0].nomMetier}} </h2>
+  <div class="w3-card w3-half w3-center">
+  <h3 class="w3-text-pink">{{recap[0].nomRecette}}</h3>
+  <ul class="w3-ul">
+    <li *ngFor="let ingredient of recap">{{ingredient.nomIngredient}} x {{ingredient.quantite}}</li>
+  </ul>
+  </div>
+</div>
+

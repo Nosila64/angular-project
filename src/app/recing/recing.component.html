@@ -4,22 +4,26 @@
     <div class="w3-container">
       <h2>Ajouter un Personnage :</h2>
     </div>
-
     <div class="w3-container">
       <form (ngSubmit)="onSubmit(recingForm)" [formGroup]="recingForm">
         <label>1 . Ajouter des ingredients pour la recette {{recette.nomRecette}}:</label>
-        <div formArrayName="ingredients">
-          <div *ngFor="let ingredient of recingForm.controls.ingredients.controls; let i=index">
+        <div formArrayName="ingredientsForm">
+          <div *ngFor="let ingredient of recingForm.controls.ingredientsForm.controls; let i=index">
             <div>
               <span>Ingredient n° {{i + 1}}</span>
-              <span class="glyphicon glyphicon-remove pull-right" *ngIf="recingForm.controls.ingredients.controls.length > 1" (click)="removeIngredient(i)"></span>
+              <span class="w3-btn rond w3-teal" *ngIf="recingForm.controls.ingredientsForm.controls.length > 1 && i > 0" (click)="removeIngredientForm(i)">-</span>
             </div>
-            <select formControlName="ingredient" class="w3-select">
-              <option *ngFor="let ingredient of ingredients.Ingredients"  value="{{ingredient.idIngredient}}">{{ingredient.nomIngredient}}</option>
+            <div [formGroupName]="i">
+              <input type="hidden" ngModel="{{recette.idRecette}}" formControlName="idRecette">
+              <input type="hidden" ngModel="{{recette.idMetier}}" formControlName="idMetier">
+            <select formControlName="idIngredient" class="w3-select">
+              <option *ngFor="let ingredientChoice of ingredients.Ingredients"  value="{{ingredientChoice.idIngredient}}">{{ingredientChoice.nomIngredient}}</option>
             </select>
             <input formControlName="quantite" ngModel type="text" class="w3-input w3-border"><br />
+            </div>
           </div>
         </div>
+        <span class="w3-teal w3-button rond" (click)="addIngredientForm()">+</span><br /><br />
         <input type="submit" value="Next >" class="w3-btn w3-teal">
       </form>
       <br />

@@ -12,7 +12,7 @@ export class Metier {
 export class Recette {
   idRecette: number;
   nomRecette: string;
-  metier: Metier;
+  idMetier: number;
 }
 
 export class Ingredient {
@@ -21,14 +21,14 @@ export class Ingredient {
 }
 
 export class IngredientRecette {
-  ingredient: Ingredient;
-  metier: Metier;
-  recette: Recette;
   quantite: number;
+  idRecette: number;
+  idMetier: number;
+  idIngredient: number;
 }
 
 export class  MetierPersonnage {
-  metier: Metier;
-  personnage: Personnage;
+  idMetier: number;
+  idPersonnage: number;
   niveau: number;
 }

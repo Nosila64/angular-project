@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Personnage, Metier, Recette, Ingredient} from "./model-data";
+import {Personnage, Metier, Recette, Ingredient, IngredientRecette} from "./model-data";
 import {HttpClient} from "@angular/common/http";
 import {environment} from '../environments/environment';
 import {Observable} from "rxjs";
@@ -40,5 +40,14 @@ export class ApiService {
   }
   getIngredients(): Observable<Ingredient[]> {
     return this.http.get<Ingredient[]>(API_URL+"/api/ingredients");
+  }
+
+  addRecing(recing: IngredientRecette[]): Observable<any> {
+    return this.http.post(API_URL + "/api/recing", recing);
+  }
+  getRecap(idMetier: number,idRecette: number) {
+    console.log(idMetier);
+    console.log(idRecette);
+    return this.http.get(API_URL + "/api/recap/"+idMetier+"/"+idRecette  );
   }
 }

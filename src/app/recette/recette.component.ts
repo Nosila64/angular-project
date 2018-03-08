@@ -16,7 +16,7 @@ export class RecetteComponent implements OnInit {
   private recette = {
     idRecette : 0,
     nomRecette: '',
-    metier: this.metier
+    idMetier: 0
   };
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) { }
@@ -26,8 +26,13 @@ export class RecetteComponent implements OnInit {
     return this.apiService.getMetier(this.selectedId).subscribe(metier => {this.metier = metier['Metier']});
   }
 
-  onClick(id: number){
-    console.log(id);
+  counter(i: number):Array<number> {
+    let array = [];
+    for(let j = 1;j < i+1;j++)
+    {
+      array.push(j);
+    }
+    return array;
   }
 
   onSubmit(recetteForm) {
