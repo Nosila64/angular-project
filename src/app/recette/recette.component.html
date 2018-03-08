@@ -7,8 +7,11 @@
       <form (ngSubmit)="onSubmit(recetteForm)" #recetteForm="ngForm">
         <label>1 . Recipe Name:</label>
         <input type="hidden" name="idMetier" [(ngModel)]="metier.idMetier">
-        <input name="nomRecette" ngModel type="text" class="w3-input w3-border"><br />
-        <input name="niveauRecette" ngModel type="text" class="w3-input w3-border"><br />
+        <input name="nomRecette" ngModel type="text" class="w3-input w3-border" placeholder="Name"><br />
+        <label>2. Level Requirement:</label>
+        <select name="niveauRecette" ngModel type="text" class="w3-input w3-border" placeholder="Level">
+          <option *ngFor="let i of counter(200);">{{i}}</option>
+        </select><br />
         <input type="submit" value="Next >" class="w3-btn w3-teal">
       </form>
       <br />
